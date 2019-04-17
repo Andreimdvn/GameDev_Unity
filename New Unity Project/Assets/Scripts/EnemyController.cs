@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public GameObject shot;
     public Text winText;
-    public float fireRate = 0.997f;
+    public float fireRate;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
             if (enemy.position.x < -10.5 || enemy.position.x > 10.5)
             {
                 speed = -speed;
-                enemyHolder.position += Vector3.down * 0.5f;
+                enemyHolder.position += Vector3.down * 0.35f;
                 return;
             }
 
@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
                 Instantiate(shot, enemy.position, enemy.rotation);
             }
 
-            if(enemy.position.y <= -2.5)
+            if(enemy.position.y <= -3)
             {
                 GameOver.isPlayerDead = true;
                 Time.timeScale = 0;
